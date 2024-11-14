@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package core;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+service NotebookService {
+  rpc CreateNotebook(CreateNotebookRequest) returns (CreateNotebookReply);
+  rpc OrderingNotebook(OrderingNotebookRequest) returns (google.protobuf.Empty);
+}
+
+message CreateNotebookRequest {
+  string workspaceId = 1;
+  string title = 2;
+}
+
+message CreateNotebookReply {
+  string id = 1;
+  string title = 2;
+  int32 order = 3;
+  string workspaceId = 4;
+  google.protobuf.Timestamp createdAt = 5;
+  google.protobuf.Timestamp updatedAt = 6;
+  string createdBy = 7;
+  string updatedBy = 8;
+}
+
+message OrderingNotebookRequest {
+  string notebookId = 1;
+  int32 order = 2;
+}

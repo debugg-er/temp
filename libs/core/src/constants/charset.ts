@@ -1,0 +1,3 @@
+export const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUV'
+export const DIGIT = '0123456789'
+export const ALPHANUMERIC = 'abcdefghijklmnopqrstuvABCDEFGHIJKLMNOPQRSTUV0123456789'

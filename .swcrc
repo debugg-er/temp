@@ -1,0 +1,26 @@
+{
+    "jsc": {
+        "baseUrl": "./",
+        "parser": {
+            "syntax": "typescript",
+            "tsx": false,
+            "decorators": true,
+            "decoratorsBeforeExport": true,
+            "dynamicImport": true
+        },
+        "transform": {
+            "decoratorMetadata": true
+        },
+        "target": "es2021",
+        "loose": false,
+        "keepClassNames": true,
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "module": {
+        "type": "commonjs"
+    },
+    "minify": false,
+    "sourceMaps": true
+}

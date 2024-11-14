@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package identity;
+
+import "common.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+service UserService {
+  rpc GetMyWorkspaces(google.protobuf.Empty) returns (GetMyWorkspacesReply);
+}
+
+message GetMyWorkspacesReply {
+  repeated Workspace data = 1;
+
+  message Workspace {
+    string id = 1;
+    string name = 2;
+    WorkspaceType type = 3;
+    google.protobuf.Timestamp createdAt = 4;
+    string createdBy = 5;
+    google.protobuf.Timestamp updatedAt = 6;
+    string updatedBy = 7;
+  }
+}

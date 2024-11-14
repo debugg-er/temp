@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package identity;
+
+import "google/protobuf/timestamp.proto";
+import "common.proto";
+
+service WorkspaceService {
+  rpc CreateWorkspace(CreateWorkspaceRequest) returns (CreateWorkspaceReply);
+  rpc GetWorkspace(GetWorkspaceRequest) returns (GetWorkspaceReply);
+  rpc GetNotebooks(GetNotebooksRequest) returns (GetNotebooksReply);
+}
+
+message CreateWorkspaceRequest {
+  string name = 1;
+}
+
+message CreateWorkspaceReply {
+  string id = 1;
+  string name = 2;
+}
+
+message GetWorkspaceReply {
+  string id = 1;
+  string name = 2;
+  WorkspaceType type = 3;
+  google.protobuf.Timestamp created_at = 4;
+  string created_by = 5;
+  google.protobuf.Timestamp updated_at = 6;
+  string updated_by = 7;
+}
+
+message GetWorkspaceRequest {
+  string id = 1;
+}
+
+message GetNotebooksRequest {
+  string workspaceId = 1;
+}
+
+message Notebook {
+  string id = 1;
+  string title = 2;
+  int32 order = 3;
+  string workspace_id = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+  string created_by = 7;
+  string updated_by = 8;
+}
+
+message GetNotebooksReply {
+  repeated Notebook notebooks = 1;
+}
