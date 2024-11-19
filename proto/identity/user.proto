@@ -7,19 +7,67 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
 service UserService {
-  rpc GetMyWorkspaces(google.protobuf.Empty) returns (GetMyWorkspacesReply);
+  rpc StoreUser(Payload) returns (google.protobuf.Empty);
 }
 
-message GetMyWorkspacesReply {
-  repeated Workspace data = 1;
+message GeoIP {
+    string cityName = 1;
+    string continentCode = 2;
+    string countryCode3 = 3;
+    string countryCode = 4;
+    string countryName = 5;
+    double latitude = 6;
+    double longitude = 7;
+    string subdivisionCode = 8;
+    string subdivisionName = 9;
+    string timeZone = 10;
+}
 
-  message Workspace {
+message Request {
+    GeoIP geoip = 1;
+    string hostname = 2;
+    string ip = 3;
+    string language = 4;
+    string method = 5;
+    string user_agent = 6;
+}
+
+message Connection {
     string id = 1;
-    string name = 2;
-    WorkspaceType type = 3;
-    google.protobuf.Timestamp createdAt = 4;
-    string createdBy = 5;
-    google.protobuf.Timestamp updatedAt = 6;
-    string updatedBy = 7;
-  }
+    map<string, string> metadata = 2;
+    string name = 3;
+    string strategy = 4;
+}
+
+message Tenant {
+    string id = 1;
+}
+
+message Transaction {
+    repeated string acr_values = 1;
+    string id = 2;
+    string locale = 3;
+    string protocol = 4;
+    repeated string requested_scopes = 5;
+    repeated string ui_locales = 6;
+}
+
+message User {
+    string email = 1;
+    string tenant = 2;
+    string user_id = 3;
+    map<string, string> app_metadata = 4;
+    map<string, string> user_metadata = 5;
+    bool email_verified = 6;
+    bool phone_verified = 7;
+}
+
+message Payload {
+    Request request = 1;
+    Connection connection = 2;
+    Tenant tenant = 3;
+    Transaction transaction = 4;
+    User user = 5;
+    map<string, string> configuration = 6;
+    map<string, string> secrets = 7;
 }

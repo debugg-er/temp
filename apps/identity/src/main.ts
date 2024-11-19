@@ -13,7 +13,7 @@ const port = process.env.PORT ?? 8080
 async function bootstrap() {
     const app = await NestFactory.createMicroservice<MicroserviceOptions>(IdentityModule, {
         transport: Transport.GRPC,
-        bufferLogs: true,
+        bufferLogs: false,
         options: {
             url: `0.0.0.0:${port}`,
             package: 'identity',

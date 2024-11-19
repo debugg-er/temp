@@ -8,7 +8,7 @@ module.exports = function (options) {
         devtool: 'inline-source-map',
         output: {
             ...options.output,
-            filename: `${appName}.[contenthash:8].js`,
+            // filename: `${appName}.[contenthash:8].js`,
         },
         module: {
             rules: [

@@ -9,9 +9,11 @@ RUN yarn install --production=true --frozen-lockfile
 
 COPY nest-cli.json tsconfig.json tsconfig.build.json ./
 
-COPY src ./src
+COPY apps ./apps
 
-RUN yarn build
+COPY libs ./libs
+
+RUN yarn build $APP
 
 # Production
 FROM node:20.15.1-alpine
@@ -23,7 +25,7 @@ WORKDIR /app
 
 COPY --from=builder /build/node_modules ./node_modules
 
-COPY --from=builder /build/dist dist
+COPY --from=builder /build/dist/apps/$APP dist
 
 USER app
 
