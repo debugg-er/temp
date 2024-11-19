@@ -7,7 +7,7 @@ import { ConfigModule } from '@nestjs/config'
 import { UserController } from './controllers/user.controller'
 import { IdentityController } from './identity.controller'
 import { IdentityService } from './identity.service'
-import { RepositoryModule } from './repositories/repository.module'
+import { TypeOrmReposirotyModule } from './modules/typeorm/typeorm.module'
 import { UserService } from './services/user.service'
 import { IdentityConfigSchema } from './types/config'
 
@@ -19,9 +19,9 @@ import { IdentityConfigSchema } from './types/config'
         }),
         ClsModule.forRoot({
             global: true,
-            middleware: { mount: true, generateId: true },
+            guard: { mount: true, generateId: true },
         }),
-        RepositoryModule,
+        TypeOrmReposirotyModule,
         WinstonModule,
     ],
     controllers: [IdentityController, UserController],

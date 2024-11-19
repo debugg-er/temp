@@ -6,6 +6,6 @@ import { WinstonService } from './winston.service'
 @Global()
 @Module({
     providers: [WinstonService, WinstonLogger],
-    exports: [WinstonLogger],
+    exports: [WinstonService, WinstonLogger],
 })
 export class WinstonModule {}

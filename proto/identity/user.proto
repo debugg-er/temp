@@ -2,12 +2,16 @@ syntax = "proto3";
 
 package identity;
 
-import "common.proto";
 import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
 
 service UserService {
-  rpc StoreUser(Payload) returns (google.protobuf.Empty);
+  rpc StoreUser(Payload) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/users"
+      body: "*"
+    };
+  }
 }
 
 message GeoIP {

@@ -15,7 +15,10 @@
         "loose": false,
         "keepClassNames": true,
         "paths": {
-            "@/*": ["./src/*"]
+            "@lib/core": ["libs/core/src"],
+            "@lib/core/*": ["libs/core/src/*"],
+            "@lib/common": ["libs/common/src"],
+            "@lib/common/*": ["libs/common/src/*"]
         }
     },
     "module": {

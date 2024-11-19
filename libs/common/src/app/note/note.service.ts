@@ -2,15 +2,15 @@ import { ClsService } from 'nestjs-cls'
 import { subject } from '@casl/ability'
 import { Inject, Injectable } from '@nestjs/common'
 
-import { ClsConfig } from '@/types/core/cls'
-import { TPagination } from '@/types/core/query'
-import { INotebookRepository } from '@/types/repositories/INotebookRepository'
-import { INoteRepository } from '@/types/repositories/INoteRepository'
-
 import { CreateNoteDto } from './note.dto'
 import { NoteException } from './note.exception'
 import { PermissionService } from '../permission/permission.service'
 import { Action, Subject } from '../permission/permission.type'
+
+import { ClsConfig } from '@/types/core/cls'
+import { TPagination } from '@/types/core/query'
+import { INotebookRepository } from '@/types/repositories/INotebookRepository'
+import { INoteRepository } from '@/types/repositories/INoteRepository'
 
 @Injectable()
 export class NoteService {

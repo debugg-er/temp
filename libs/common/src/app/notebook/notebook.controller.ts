@@ -1,5 +1,7 @@
 import { Observable } from 'rxjs'
 
+import { NotebookService } from './notebook.service'
+
 import {
     CreateNotebookReply,
     CreateNotebookRequest,
@@ -7,8 +9,6 @@ import {
     NotebookServiceControllerMethods,
     OrderingNotebookRequest,
 } from '@/proto/notebook'
-
-import { NotebookService } from './notebook.service'
 
 @NotebookServiceControllerMethods()
 export class NotebookController implements NotebookServiceController {

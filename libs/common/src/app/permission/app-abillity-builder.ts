@@ -1,8 +1,8 @@
 import { AbilityBuilder as CaslAbilityBuilder, createMongoAbility } from '@casl/ability'
 
-import { EWorkspaceRole, WorkspaceMember } from '@/schemas/workspace-member'
-
 import { Action, Subject } from './permission.type'
+
+import { EWorkspaceRole, WorkspaceMember } from '@/schemas/workspace-member'
 
 export class AppAbillityBuilder {
     private readonly caslAbilityBuilder = new CaslAbilityBuilder(createMongoAbility)

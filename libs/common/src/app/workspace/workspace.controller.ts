@@ -1,6 +1,10 @@
 import { Observable } from 'rxjs'
 import { UseGuards } from '@nestjs/common'
 
+import { CreateWorkspaceRequestDto } from './workspace.dto'
+import { NotebookService } from '../notebook/notebook.service'
+import { WorkspaceService } from '../workspace/workspace.service'
+
 import { Auth0Guard } from '@/guards/authenticate.guard'
 import {
     CreateWorkspaceReply,
@@ -11,10 +15,6 @@ import {
     WorkspaceServiceController,
     WorkspaceServiceControllerMethods,
 } from '@/proto/workspace'
-
-import { CreateWorkspaceRequestDto } from './workspace.dto'
-import { NotebookService } from '../notebook/notebook.service'
-import { WorkspaceService } from '../workspace/workspace.service'
 
 @UseGuards(Auth0Guard)
 @WorkspaceServiceControllerMethods()

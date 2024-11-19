@@ -6,6 +6,13 @@ import { APP_FILTER, APP_PIPE } from '@nestjs/core'
 import { JwtModule } from '@nestjs/jwt'
 import { PassportModule } from '@nestjs/passport'
 
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { NoteModule } from './note/note.module'
+import { NotebookModule } from './notebook/notebook.module'
+import { UserModule } from './user/user.module'
+import { WorkspaceModule } from './workspace/workspace.module'
+
 import { RedisCacheModule } from '@/cache/redis-cache.module'
 import { ClientExceptionFilter } from '@/exception-filters/client.exception-filter'
 import { PostgresExceptionFilter } from '@/exception-filters/postgres.exception-filter'
@@ -15,13 +22,6 @@ import { Auth0Strategy } from '@/guards/authenticate.guard'
 import { DrizzleModule } from '@/modules/drizzle/drizzle.module'
 import { WinstonModule } from '@/modules/winston/winston.module'
 import { Config, ConfigSchema } from '@/types/core/config'
-
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
-import { NoteModule } from './note/note.module'
-import { NotebookModule } from './notebook/notebook.module'
-import { UserModule } from './user/user.module'
-import { WorkspaceModule } from './workspace/workspace.module'
 
 @Module({
     imports: [

@@ -17,10 +17,10 @@ async function bootstrap() {
         options: {
             url: `0.0.0.0:${port}`,
             package: 'identity',
-            protoPath: [
-                path.join(__dirname, '../../../proto/identity/user.proto'),
-                path.join(__dirname, '../../../proto/identity/workspace.proto'),
-            ],
+            loader: {
+                includeDirs: [path.join(__dirname, '../../../proto/identity')],
+            },
+            protoPath: [path.join(__dirname, '../../../proto/identity/user.proto')],
             onLoadPackageDefinition: (pkg, server) => {
                 new ReflectionService(pkg).addToServer(server)
             },

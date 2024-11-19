@@ -1,8 +1,10 @@
+import { Observable } from 'rxjs'
+
 import { UserService } from './user.service'
 import { WorkspaceService } from '../workspace/workspace.service'
-import { GetMyWorkspacesReply, UserServiceController, UserServiceControllerMethods } from '@/proto/user'
+
 import { Empty } from '@/proto/google/protobuf/empty'
-import { Observable } from 'rxjs'
+import { GetMyWorkspacesReply, UserServiceController, UserServiceControllerMethods } from '@/proto/user'
 
 @UserServiceControllerMethods()
 export class UserResolver implements UserServiceController {

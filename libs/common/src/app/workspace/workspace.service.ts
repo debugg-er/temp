@@ -2,6 +2,10 @@ import { ClsService } from 'nestjs-cls'
 import { subject } from '@casl/ability'
 import { Inject, Injectable } from '@nestjs/common'
 
+import { CreateWorkspaceRequestDto } from './workspace.dto'
+import { PermissionService } from '../permission/permission.service'
+import { Action, Subject } from '../permission/permission.type'
+
 import { ALPHANUMERIC } from '@/constants/charset'
 import { PaginationDto } from '@/dto/query'
 import { EWorkspaceType, WORKSPACE_ID_LENGTH } from '@/schemas/workspace'
@@ -11,10 +15,6 @@ import { ITransactionManager } from '@/types/repositories/ITransactionManager'
 import { IWorkspaceMemberRepository } from '@/types/repositories/IWorkspaceMemberRepository'
 import { IWorkspaceRepository } from '@/types/repositories/IWorkspaceRepository'
 import { generateString } from '@/utils/string'
-
-import { CreateWorkspaceRequestDto } from './workspace.dto'
-import { PermissionService } from '../permission/permission.service'
-import { Action, Subject } from '../permission/permission.type'
 
 @Injectable()
 export class WorkspaceService {
@@ -38,7 +38,7 @@ export class WorkspaceService {
         const userId = this.clsService.get('token.id')
 
         const newWorkspaceId = generateString(WORKSPACE_ID_LENGTH, ALPHANUMERIC)
-        const newWorksapce =  await this.transactionManager.run(async () => {
+        const newWorksapce = await this.transactionManager.run(async () => {
             const newWorkspace = await this.workspaceRepository.create({
                 id: newWorkspaceId,
                 ...dto,
