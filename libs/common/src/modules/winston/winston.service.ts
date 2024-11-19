@@ -20,7 +20,7 @@ export class WinstonService {
             [LogLevel.Error]: 'red',
             [LogLevel.Warn]: 'yellow',
             [LogLevel.Info]: 'green',
-            [LogLevel.Debug]: 'magenta',
+            [LogLevel.Debug]: 'blue',
             [LogLevel.Verbose]: 'grey',
         })
 
