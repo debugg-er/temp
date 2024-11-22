@@ -1,10 +1,11 @@
 import colors from 'colors/safe'
 import { ClsService } from 'nestjs-cls'
 import { createLogger, format, Logger, transports } from 'winston'
-import { LogLevel } from '@lib/core/enums/log'
-import { TWinstonConfig } from '@lib/core/types/config'
 import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
+
+import { LogLevel } from '@lib/core/enums/log'
+import { TWinstonConfig } from '@lib/core/types/config'
 
 @Injectable()
 export class WinstonService {

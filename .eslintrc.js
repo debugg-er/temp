@@ -19,7 +19,7 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
 
-        indent: ['error', 4, { SwitchCase: 1, ignoredNodes: ['PropertyDefinition'] }],
+        indent: 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-namespace': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
@@ -41,7 +41,7 @@ module.exports = {
                     // external library
                     ['^\\w', '^@?\\w'],
                     // project components
-                    ['^@lib\\w'],
+                    ['^@lib\\b'],
                     // relative paths up until 3 level
                     [
                         '^\\./?$',

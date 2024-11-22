@@ -1,10 +1,11 @@
 import { passportJwtSecret } from 'jwks-rsa'
 import { Strategy } from 'passport-jwt'
 import { Metadata } from '@grpc/grpc-js'
-import { TAuth0Config } from '@lib/core/types/config'
 import { ExecutionContext, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { AuthGuard, PassportStrategy } from '@nestjs/passport'
+
+import { TAuth0Config } from '@lib/core/types/config'
 
 @Injectable()
 export class Auth0Strategy extends PassportStrategy(Strategy) {

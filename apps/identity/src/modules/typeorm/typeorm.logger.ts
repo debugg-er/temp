@@ -1,4 +1,5 @@
 import { Logger } from 'typeorm'
+
 import { WinstonLogger } from '@lib/common/modules/winston'
 
 export class TypeOrmLogger implements Logger {

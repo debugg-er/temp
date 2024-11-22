@@ -1,4 +1,6 @@
 import Joi from 'joi'
+import { ConfigService } from '@nestjs/config'
+
 import {
     Auth0ConfigSchema,
     DrizzleConfigSchema,
@@ -7,7 +9,6 @@ import {
     TWinstonConfig,
     WinstonConfigSchema,
 } from '@lib/core/types/config'
-import { ConfigService } from '@nestjs/config'
 
 export type TIdentityConfig = TDrizzleConfig & TAuth0Config & TWinstonConfig
 

@@ -1,19 +1,18 @@
 import * as path from 'path'
 import { ReflectionService } from '@grpc/reflection'
-import { WinstonLogger } from '@lib/common/modules/winston'
 import { NestFactory } from '@nestjs/core'
 import { MicroserviceOptions, Transport } from '@nestjs/microservices'
 
-import { IdentityModule } from './identity.module'
+import { WinstonLogger } from '@lib/common/modules/winston'
 
-// import { AppModule } from '@/app/app.module'
+import { IdentityModule } from './identity.module'
 
 const port = process.env.PORT ?? 8080
 
 async function bootstrap() {
     const app = await NestFactory.createMicroservice<MicroserviceOptions>(IdentityModule, {
         transport: Transport.GRPC,
-        bufferLogs: false,
+        bufferLogs: true,
         options: {
             url: `0.0.0.0:${port}`,
             package: 'identity',

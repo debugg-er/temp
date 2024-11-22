@@ -1,8 +1,9 @@
 import { Repository } from 'typeorm'
-import { WinstonLogger, WinstonService } from '@lib/common/modules/winston'
 import { Global, Module, Type } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
+
+import { WinstonLogger, WinstonService } from '@lib/common/modules/winston'
 
 import { TypeOrmLogger } from './typeorm.logger'
 import { UserEntity } from '../../entities/user.entity'

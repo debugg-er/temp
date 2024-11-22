@@ -4,6 +4,8 @@ metadata:
   name: {{ include "service.fullname" . }}
   labels:
     {{- include "service.labels" . | nindent 4 }}
+  annotations:
+    konghq.com/protocol: grpc
 spec:
   type: {{ .Values.service.type }}
   ports:

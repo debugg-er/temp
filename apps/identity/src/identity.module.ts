@@ -1,8 +1,9 @@
 import { ClsModule } from 'nestjs-cls'
-import { Auth0Strategy } from '@lib/common/guards/authenticate.guard'
-import { WinstonModule } from '@lib/common/modules/winston'
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
+
+import { Auth0Strategy } from '@lib/common/guards/authenticate.guard'
+import { WinstonModule } from '@lib/common/modules/winston'
 
 import { UserController } from './controllers/user.controller'
 import { IdentityController } from './identity.controller'

@@ -1,7 +1,8 @@
 import { Logger } from 'winston'
-import { LogLevel } from '@lib/core/enums/log'
 import { Inject, Injectable, LoggerService, Scope } from '@nestjs/common'
 import { INQUIRER } from '@nestjs/core'
+
+import { LogLevel } from '@lib/core/enums/log'
 
 import { WinstonService } from './winston.service'
 
